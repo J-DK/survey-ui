@@ -1,2 +1,26 @@
-<p> app works</p>
+<header class="header-6">
+  <div class="branding">
+    <a href="/" class="nav-link">
+      <clr-icon shape="note" class="is-solid is-success"></clr-icon>
+      <span class="title">Survey Shrike</span>
+    </a>
+  </div>
+  <div class="header-actions">
+    <a href="/" class="active nav-link nav-icon-text">
+      <clr-icon shape="user" class="is-solid is-success"></clr-icon>
+      <span class="nav-text">JDK2.0</span>
+    </a>
+    <clr-dropdown>
+      <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+        <clr-icon shape="cog" class="is-info"></clr-icon>
+        <clr-icon shape="caret down"></clr-icon>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+        <a href="/" clrDropdownItem>About</a>
+        <a href="/" clrDropdownItem>Preferences</a>
+        <a href="/" clrDropdownItem>Log out</a>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div>
+</header>
 <router-outlet></router-outlet>
