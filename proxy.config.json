@@ -1,0 +1,6 @@
+{
+  "/survey-service": {
+    "target": "http://localhost:3000/surveys",
+    "secure": false
+  }
+}
