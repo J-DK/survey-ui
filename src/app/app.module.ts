@@ -6,19 +6,29 @@ import { ClarityModule } from '@clr/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './features/components/home/home.component';
+import { CreateSurveyModule } from './features/components/create-survey/create-survey.module';
+import { HomeModule } from './features/components/home/home.module';
+import { LoginModule } from './features/components/login/login.module';
+import { MySurveysModule } from './features/components/my-surveys/my-surveys.module';
+import { SurveyResponseComponent } from './features/components/survey-response/survey-response.component';
+import { SurveyResponseModule } from './features/components/survey-response/survey-response.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    SurveyResponseComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ClarityModule,
-    FormsModule
+    FormsModule,
+    HomeModule,
+    MySurveysModule,
+    SurveyResponseModule,
+    CreateSurveyModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
