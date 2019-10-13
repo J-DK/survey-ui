@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AttendSurveyComponent } from './features/components/attend-survey/attend-survey.component';
 import { CreateSurveyComponent } from './features/components/create-survey/create-survey.component';
 import { HomeComponent } from './features/components/home/home.component';
 import { MySurveysComponent } from './features/components/my-surveys/my-surveys.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'create-survey', component: CreateSurveyComponent, canActivate: [AuthGuard]  },
   { path: 'my-surveys', component: MySurveysComponent, canActivate: [AuthGuard]  },
+  { path: 'surveys/:id', component: AttendSurveyComponent, canActivate: [AuthGuard]  },
   { path: 'survey-response', component: SurveyResponseComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'home' }
 ];
