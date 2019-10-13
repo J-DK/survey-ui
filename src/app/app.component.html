@@ -1,5 +1,5 @@
 <clr-main-container>
-<header class="header-6">
+  <header class="header-6">
     <div class="branding">
       <a href="/" class="nav-link">
         <clr-icon shape="note" class="is-solid is-success"></clr-icon>
@@ -13,13 +13,8 @@
       </a>
       <clr-dropdown>
         <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
-          <clr-icon shape="cog" class="is-info"></clr-icon>
-          <clr-icon shape="caret down"></clr-icon>
+          <clr-icon shape="logout" class="is-success is-solid" (click)="logOut()"></clr-icon>
         </button>
-        <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-          <a href="/" clrDropdownItem>About</a>
-          <a href="/" clrDropdownItem>Log out</a>
-        </clr-dropdown-menu>
       </clr-dropdown>
     </div>
   </header>

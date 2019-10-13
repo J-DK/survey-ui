@@ -6,6 +6,7 @@ import { ClarityModule } from '@clr/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AttendSurveyModule } from './features/components/attend-survey/attend-survey.module';
 import { CreateSurveyModule } from './features/components/create-survey/create-survey.module';
 import { HomeModule } from './features/components/home/home.module';
 import { LoginModule } from './features/components/login/login.module';
@@ -28,7 +29,8 @@ import { SurveyResponseModule } from './features/components/survey-response/surv
     MySurveysModule,
     SurveyResponseModule,
     CreateSurveyModule,
-    LoginModule
+    LoginModule,
+    AttendSurveyModule
   ],
   providers: [],
   bootstrap: [AppComponent]

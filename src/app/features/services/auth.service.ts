@@ -10,7 +10,7 @@ import { LoginUser, SignupUser } from '../models/model';
 })
 export class AuthService {
 
-  private currentUserSubject: BehaviorSubject<string>;
+  public currentUserSubject: BehaviorSubject<string>;
   public currentUser: Observable<string>;
 
   constructor(private http: HttpClient) {
@@ -25,8 +25,7 @@ export class AuthService {
   login(loginUser: LoginUser): Observable<any> {
     return this.http.get( `http://localhost:3000/users?email=${loginUser.email}&password=${loginUser.password}`)
       .pipe(map((response: any) => {
-        console.log("res", response[1].email);
-          this.setLocalStorage(response[1].email);
+          this.setLocalStorage(response[0].firstName);
         return response;
       }));
   }
@@ -34,7 +33,7 @@ export class AuthService {
   register(user: SignupUser): Observable<any> {
     return this.http.post("http://localhost:3000/users", user)
       .pipe(tap((response: any) => {
-          this.setLocalStorage(response.email);
+          this.setLocalStorage(response.firstName);
       }));
   }
 
