@@ -1,4 +1,3 @@
-<div class="content-container">
 <h2>Create a Survey</h2>
 <label>Survey name</label>
 <input clrInput type="text" [(ngModel)]="surveyName" name="surveyName"
@@ -32,9 +31,9 @@
       <div class="question-number">
         <div>
           <span class="badge badge-success">Q{{this.questions.length + 1}}.</span></div>
-        <div>
-          <clr-icon shape="trash" class="is-solid" (click)="removeQuestion(i)"></clr-icon>
-        </div>
+<!--        <div>-->
+<!--          <clr-icon shape="trash" class="is-solid" (click)="removeQuestion(i)"></clr-icon>-->
+<!--        </div>-->
       </div>
       <div class="question">
         <div>
@@ -94,9 +93,8 @@
     </div>
 
     <div class="modal-footer">
-      <button type="button" class="btn btn-inverse" (click)="opened = !opened">Cancel</button>
+      <button type="button" class="btn btn-inverse" (click)="cancel()">Cancel</button>
       <button type="button" class="btn btn-success" (click)="saveQuestion()">Save</button>
     </div>
   </clr-modal>
 </form>
-</div>

@@ -1,5 +1,5 @@
 export interface Question {
-  id: number;
+  questionNo: number;
   title: string;
   type: QuestionType;
   optionalValues : string[];
@@ -8,8 +8,8 @@ export interface Question {
 
 export interface Survey {
   id?: number
-  userId: string;
-  name: string;
+  email: string;
+  surveyName: string;
   questionnaire: Question[];
 }
 

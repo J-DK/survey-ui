@@ -1,4 +1,4 @@
-<h2>{{_survey?.name}}</h2>
+<h2>{{_survey?.surveyName}}</h2>
 <form clrForm [formGroup]="submitSurvey" (ngSubmit)="submitFeedback()">
   <div *ngFor="let question of _survey?.questionnaire" [ngSwitch]="question.type">
     <div class="question-title">
@@ -6,19 +6,19 @@
     </div>
     <div *ngSwitchCase="'singleLine'">
       <clr-input-container>
-        <input clrInput type="text" [formControlName]="'Q'+question.id"/>
+        <input clrInput type="text" [formControlName]="'Q'+question.questionNo"/>
       </clr-input-container>
     </div>
 
     <div *ngSwitchCase="'multiLine'">
       <textarea clrTextarea name="description" size="50"
-                [formControlName]="'Q'+question.id"></textarea>
+                [formControlName]="'Q'+question.questionNo"></textarea>
     </div>
 
     <div *ngSwitchCase="'radio'">
       <clr-radio-container clrInline>
         <clr-radio-wrapper *ngFor="let option of question.optionalValues">
-          <input type="radio" clrRadio [value]="option" [formControlName]="'Q'+question.id"/>
+          <input type="radio" clrRadio [value]="option" [formControlName]="'Q'+question.questionNo"/>
           <label>{{option}}</label>
         </clr-radio-wrapper>
       </clr-radio-container>
@@ -28,9 +28,9 @@
       <div *ngFor="let option of question.optionalValues let i = index">
         <clr-checkbox-container>
           <clr-checkbox-wrapper>
-            <input type="checkbox" clrCheckbox [id]="'Q'+question.id+i" [value]="option"
-                   (click)="toggle('Q'+question.id, option)"
-                   [formControlName]="'Q'+question.id"/>
+            <input type="checkbox" clrCheckbox [id]="'Q'+question.questionNo+i" [value]="option"
+                   (click)="toggle('Q'+question.questionNo, option)"
+                   [formControlName]="'Q'+question.questionNo"/>
             <label>{{option}}</label>
           </clr-checkbox-wrapper>
         </clr-checkbox-container>

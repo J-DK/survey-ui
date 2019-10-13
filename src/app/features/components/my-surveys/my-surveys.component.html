@@ -6,7 +6,7 @@
       <div class="clr-col-sm-4 clr-col-12" *ngFor="let survey of surveys">
         <div class="card">
           <div class="card-header">
-            {{survey.name}}
+            {{survey.surveyName}}
           </div>
           <div class="card-block">
             <div class="card-media-block">
@@ -20,7 +20,7 @@
                 <span class="card-media-text ">
               Creator:
               <span class="label label-info" style="padding-top: 4px">
-                {{survey.userId}}
+                {{survey.email}}
                 </span>
               </span>
               </div>

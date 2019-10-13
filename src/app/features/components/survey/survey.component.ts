@@ -49,11 +49,11 @@ export class SurveyComponent implements OnInit {
     this.submitSurvey = this.fb.group({});
     this._survey.questionnaire.forEach(question => {
       if (question.type !== 'select') {
-        group['Q' + question.id] = new FormControl('');
+        group['Q' + question.questionNo] = new FormControl('');
       } else {
-        group['Q' + question.id] = new FormControl('');
+        group['Q' + question.questionNo] = new FormControl('');
         this.multiSelect.push({
-          id: 'Q' + question.id,
+          id: 'Q' + question.questionNo,
           values: []
         });
       }
@@ -77,17 +77,17 @@ export class SurveyComponent implements OnInit {
     this._survey.questionnaire.forEach(question => {
       if (question.type !== 'select') {
         answers.push({
-          questionNo: question.id,
+          questionNo: question.questionNo,
           question: question.title,
           questionType: question.type,
-          value: this.submitSurvey.controls['Q' + question.id].value
+          value: this.submitSurvey.controls['Q' + question.questionNo].value
         });
       } else {
         answers.push({
-          questionNo: question.id,
+          questionNo: question.questionNo,
           question: question.title,
           questionType: question.type,
-          value: this.multiSelect.find(x => x.id === 'Q' + question.id).values
+          value: this.multiSelect.find(x => x.id === 'Q' + question.questionNo).values
         });
       }
     });
@@ -95,8 +95,8 @@ export class SurveyComponent implements OnInit {
     let feedBack: FeedBack = {
       surveyId: this._survey.id,
       surveyedBy: 'JDK',
-      author: this._survey.userId,
-      surveyName: this._survey.name,
+      author: this._survey.email,
+      surveyName: this._survey.surveyName,
       answers: answers
     };
 

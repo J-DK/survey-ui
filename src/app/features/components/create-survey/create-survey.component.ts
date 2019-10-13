@@ -29,7 +29,6 @@ export class CreateSurveyComponent implements OnInit {
 
   public initForm() {
     this.createSurveyForm = this.fb.group({
-      surveyName:  ['', Validators.required],
       title: ['', Validators.required],
       optionalValues: [[]]
     });
@@ -69,20 +68,22 @@ export class CreateSurveyComponent implements OnInit {
   }
 
   public removeQuestion(index) {
+    this.questions.splice(index, 1);
+  }
 
+  cancel() {
+    this.opened = !this.opened;
+    this.createSurveyForm.reset();
   }
 
 
   public addNewQuestion() {
     this.opened = true;
-    // this.optionalValues = [];
-    // this.createSurveyForm.reset();
-
   }
 
   saveQuestion() {
     let question: Question = {
-      id: this.questions.length,
+      questionNo: this.questions.length,
       title: this.createSurveyForm.controls['title'].value,
       type: this.selectedValue,
       optionalValues: this.optionalValues
@@ -92,8 +93,8 @@ export class CreateSurveyComponent implements OnInit {
     this.opened = !this.opened;
     this.createSurveyForm.reset();
     this.survey = {
-      userId: "JDK",
-      name: this.surveyName,
+      email: "JDK",
+      surveyName: this.surveyName,
       questionnaire: this.questions
     }
   }
