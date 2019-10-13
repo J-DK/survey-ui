@@ -1,0 +1,27 @@
+<div class="">
+  <clr-stack-view>
+    <clr-stack-header>
+      <h2>Your responses</h2>
+    </clr-stack-header>
+
+
+    <clr-stack-block [clrSbExpanded]="true" *ngFor="let res of responses">
+      <clr-stack-label>{{res.surveyName}}</clr-stack-label>
+      <clr-stack-content>By:
+        <span class="badge badge-warning">{{res.surveyedBy}}</span></clr-stack-content>
+      <clr-stack-block *ngFor="let answer of res.answers">
+        <clr-stack-label>{{answer.question}}</clr-stack-label>
+        <clr-stack-content>
+          <div *ngIf="answer.questionType === 'select'">
+            <span class="label label-info" *ngFor="let val of answer.value">{{val}}</span>
+          </div>
+          <div *ngIf="answer.questionType !== 'select'">
+            {{answer.value}}
+          </div>
+
+        </clr-stack-content>
+      </clr-stack-block>
+    </clr-stack-block>
+
+  </clr-stack-view>
+</div>
