@@ -1,6 +1,10 @@
 {
   "/survey-service": {
-    "target": "http://localhost:3000/surveys",
-    "secure": false
+    "target": "http://localhost:3000",
+    "secure": false,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "/survey-service": "surveys"
+    }
   }
 }
