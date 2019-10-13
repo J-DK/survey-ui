@@ -1,0 +1,58 @@
+<div class="login-wrapper">
+  <form class="login" clrForm [formGroup]="loginForm" *ngIf="showLogin" (ngSubmit)="loginUser()">
+    <section class="title">
+      <h3 class="welcome">Welcome to Survey Shrike</h3>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <label class="clr-sr-only">Username</label>
+        <input type="text" name="username" formControlName="email" clrInput
+               placeholder="Username"/>
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Password</label>
+        <input type="password" name="password" formControlName="password" clrPassword
+               placeholder="Password"/>
+      </clr-password-container>
+
+      <button type="submit" class="btn btn-primary">Login</button>
+      <button class="btn btn-primary-outline" (click)="showLogin = !showLogin" style="margin-top: 20px;">
+        Don't have account? Register here
+      </button>
+    </div>
+  </form>
+
+  <form class="login" clrForm [formGroup]="registerForm" *ngIf="!showLogin" (ngSubmit)="registerUser()">
+    <section class="title">
+      <h3 class="welcome">Welcome to Survey Shrike</h3>
+    </section>
+    <div class="login-group">
+      <clr-input-container>
+        <label class="clr-sr-only">First Name</label>
+        <input type="text" formControlName="firstName" clrInput placeholder="First Name"/>
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-sr-only">Last Name</label>
+        <input type="text" formControlName="lastName" clrInput placeholder="Last Name"/>
+      </clr-input-container>
+      <clr-input-container>
+        <label class="clr-sr-only">Email</label>
+        <input type="text" formControlName="email" clrInput placeholder="Email"/>
+      </clr-input-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Password</label>
+        <input type="text" formControlName="password" clrPassword placeholder="Password"/>
+      </clr-password-container>
+      <clr-password-container>
+        <label class="clr-sr-only">Confirm Password</label>
+        <input type="text" formControlName="confirmPassword" clrPassword
+               placeholder="Confirm Password" [pattern]="password.value"/>
+      </clr-password-container>
+      <button type="submit" class="btn btn-primary">Register</button>
+      <button class="btn btn-primary-outline" (click)="showLogin = !showLogin" style="margin-top: 20px;">
+        Have an account? Login here
+      </button>
+    </div>
+  </form>
+
+</div>
