@@ -1,0 +1,102 @@
+<div class="content-container">
+<h2>Create a Survey</h2>
+<label>Survey name</label>
+<input clrInput type="text" [(ngModel)]="surveyName" name="surveyName"
+       required/>
+
+<survey-form [survey]="survey" [isCreateSurvey]="true"></survey-form>
+<form clrForm [formGroup]="createSurveyForm" *ngIf="shouldCreateSurvey">
+  <clr-input-container>
+    <clr-control-error>Please add a name to the survey</clr-control-error>
+  </clr-input-container>
+
+  <div>
+    <button class="btn btn-primary-outline" (click)="addNewQuestion()">
+      <clr-icon shape="plus-circle" class="is-solid"></clr-icon>
+      Add a question
+    </button>
+
+  <button class="btn btn-success-outline" (click)="createSurvey()">
+    <clr-icon shape="plus-circle" class="is-solid"></clr-icon>
+    Create
+  </button>
+  </div>
+  <clr-modal [(clrModalOpen)]="opened" [clrModalClosable]="false" [clrModalSize]="'lg'">
+    <clr-input-container>
+      <label>Question title</label>
+      <input clrInput type="text" formControlName="title" name="surveyName" required/>
+      <clr-control-error>Please add a name to the survey</clr-control-error>
+    </clr-input-container>
+    <h2 class="modal-title">Add a new question</h2>
+    <div class="modal-body">
+      <div class="question-number">
+        <div>
+          <span class="badge badge-success">Q{{this.questions.length + 1}}.</span></div>
+        <div>
+          <clr-icon shape="trash" class="is-solid" (click)="removeQuestion(i)"></clr-icon>
+        </div>
+      </div>
+      <div class="question">
+        <div>
+          <div>
+            <clr-input-container>
+              <label>Question Title</label>
+              <input clrInput type="text" formControlName="title" name="title" required/>
+              <clr-control-error>Please enter a title for the question</clr-control-error>
+            </clr-input-container>
+          </div>
+          <div class="question-type">
+            <clr-dropdown>
+              <button class="btn btn-outline-primary" clrDropdownTrigger>
+                {{selectedValue}}
+                <clr-icon shape="caret up"></clr-icon>
+              </button>
+              <clr-dropdown-menu clrPosition="top-left" *clrIfOpen>
+                <div clrDropdownItem (click)="selectedValue = 'singleLine'">
+                  <clr-icon shape="window-min" class="is-solid"></clr-icon>
+                  Single Line
+                </div>
+                <div clrDropdownItem (click)="selectedValue = 'multiLine'">
+                  <clr-icon shape="window-max" class="is-solid"></clr-icon>
+                  Multi Line
+                </div>
+                <div clrDropdownItem (click)="selectedValue = 'radio'">
+                  <clr-icon shape="dot-circle" class="is-solid"></clr-icon>
+                  Radio
+                </div>
+                <div clrDropdownItem (click)="selectedValue = 'select'">
+                  <clr-icon shape="angle-double" class="is-solid"></clr-icon>
+                  Select
+                </div>
+                <div clrDropdownItem (click)="selectedValue = 'dropdown'">
+                  <clr-icon shape="list" class="is-solid"></clr-icon>
+                  Drop down
+                </div>
+              </clr-dropdown-menu>
+            </clr-dropdown>
+          </div>
+        </div>
+        <div class="optional-values" (click)="focusTagInput()">
+          <span class="label label-info" *ngFor="let tag of optionalValues">{{tag}}
+            <span class="remove-tag" (click)="removeTag(tag)">×</span>
+              </span>
+          <clr-input-container>
+            <label>Optional Values</label>
+            <input clrInput
+                   placeholder="optional values"
+                   #tagInput type="text"
+                   class="input-tag"
+                   (keyup)="onKeyUp($event)"
+                   formControlName="optionalValues">
+          </clr-input-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-inverse" (click)="opened = !opened">Cancel</button>
+      <button type="button" class="btn btn-success" (click)="saveQuestion()">Save</button>
+    </div>
+  </clr-modal>
+</form>
+</div>
