@@ -27,7 +27,7 @@
     <div class="content-area">
       <router-outlet></router-outlet>
     </div>
-    <clr-vertical-nav [clrVerticalNavCollapsible]="true">
+    <clr-vertical-nav [clrVerticalNavCollapsible]="true" *ngIf="show">
       <clr-vertical-nav-group routerLinkActive="active">
         <a clrVerticalNavLink routerLink="create-survey" routerLinkActive="active"
            class="nav-link">
