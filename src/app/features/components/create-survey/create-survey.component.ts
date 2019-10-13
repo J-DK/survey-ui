@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Question, QuestionType, Survey } from '../../models/model';
-import { CreateSurveyService } from './create-survey.service';
+import { SurveyService } from '../../services/survey.service';
 
 @Component({
   selector: 'survey-create',
@@ -20,7 +20,7 @@ export class CreateSurveyComponent implements OnInit {
   optionalValues: string[] = [];
 
   constructor(private fb: FormBuilder,
-              private createSurveyService: CreateSurveyService) { }
+              private createSurveyService: SurveyService) { }
 
 
   ngOnInit() {

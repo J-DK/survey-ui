@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedBack } from '../../models/model';
-import { SurveyResponseService } from '../../services/survey-response.service';
+import { SurveyService } from '../../services/survey.service';
 
 @Component({
   selector: 'app-survey-response',
@@ -10,7 +10,7 @@ import { SurveyResponseService } from '../../services/survey-response.service';
 export class SurveyResponseComponent implements OnInit {
 
   responses: FeedBack[] = [];
-  constructor(private responseService: SurveyResponseService) { }
+  constructor(private responseService: SurveyService) { }
 
   ngOnInit() {
     this.responseService.getResponses().subscribe((res) => {

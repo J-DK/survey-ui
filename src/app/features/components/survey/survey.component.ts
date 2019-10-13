@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Answer, FeedBack, Survey } from '../../models/model';
-import { SurveyResponseService } from '../../services/survey-response.service';
+import { SurveyService } from '../../services/survey.service';
 
 @Component({
   selector: 'survey-form',
@@ -32,7 +32,7 @@ export class SurveyComponent implements OnInit {
   }
 
 
-  constructor(private fb: FormBuilder, private responseService: SurveyResponseService) {
+  constructor(private fb: FormBuilder, private responseService: SurveyService) {
   }
 
   toggle(controlName, option: string) {
