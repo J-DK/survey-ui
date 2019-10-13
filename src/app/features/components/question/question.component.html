@@ -1,0 +1,57 @@
+<form class="clr-form">
+  <div class="question">
+    <div>
+      <clr-input-container>
+        <label>Question Title</label>
+        <input clrInput type="text" name="title" required  data-role="tagsinput"/>
+        <clr-control-error>Please enter a title for the question</clr-control-error>
+      </clr-input-container>
+    </div>
+    <div class="question-type">
+      <clr-dropdown>
+        <button class="btn btn-outline-primary" clrDropdownTrigger>
+          {{selectedValue}}
+          <clr-icon shape="caret up"></clr-icon>
+        </button>
+        <clr-dropdown-menu clrPosition="top-left" *clrIfOpen>
+          <div clrDropdownItem (click)="selectedValue = 'Single Line'">
+            <clr-icon shape="window-min" class="is-solid"></clr-icon>
+            Single Line
+          </div>
+          <div clrDropdownItem (click)="selectedValue = 'Multi Line'">
+            <clr-icon shape="window-max" class="is-solid"></clr-icon>
+            Multi Line
+          </div>
+          <div clrDropdownItem (click)="selectedValue = 'radio'">
+            <clr-icon shape="dot-circle" class="is-solid"></clr-icon>
+            Radio
+          </div>
+          <div clrDropdownItem (click)="selectedValue = 'select'">
+            <clr-icon shape="angle-double" class="is-solid"></clr-icon>
+            Select
+          </div>
+          <div clrDropdownItem (click)="selectedValue = 'dropdown'">
+            <clr-icon shape="list" class="is-solid"></clr-icon>
+            Drop
+            down
+          </div>
+        </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>
+    <form [formGroup]="form" class="form">
+      <div class="optional-values">
+        <div class="editor-tag" (click)="focusTagInput()">
+          <span class="label label-info" *ngFor="let tag of tags">{{tag}}
+            <span class="remove-tag" (click)="removeTag(tag)">×</span>
+          </span>
+          <input clrInput
+                 placeholder="optional values"
+                 #tagInput type="text"
+                 class="input-tag"
+                 (keyup)="onKeyUp($event)"
+                 formControlName="tag">
+        </div>
+      </div>
+    </form>
+  </div>
+</form>
