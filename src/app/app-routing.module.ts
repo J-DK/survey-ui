@@ -11,9 +11,9 @@ import { AuthGuard } from './features/components/login/auth-guard';
 const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
-  { path: 'create-survey', component: CreateSurveyComponent },
-  { path: 'my-surveys', component: MySurveysComponent },
-  { path: 'survey-response', component: SurveyResponseComponent },
+  { path: 'create-survey', component: CreateSurveyComponent, canActivate: [AuthGuard]  },
+  { path: 'my-surveys', component: MySurveysComponent, canActivate: [AuthGuard]  },
+  { path: 'survey-response', component: SurveyResponseComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: 'home' }
 ];
 
