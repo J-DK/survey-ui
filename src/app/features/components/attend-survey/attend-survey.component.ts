@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Survey } from '../../models/model';
 import { SurveyService } from '../../services/survey.service';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-attend-survey',
@@ -10,16 +10,25 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AttendSurveyComponent implements OnInit {
 
-  id: number;
+  id: string;
   survey: Survey;
-  constructor(private surveyService: SurveyService, private route: ActivatedRoute) { }
+
+  constructor(private surveyService: SurveyService, private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id'];
+      this.id = params['id'];
       this.surveyService.getSurvey(this.id).subscribe((res) => {
-        this.survey = res;
-      })
+
+        let survey: Survey = {
+          id: res.responseData.surveys.surveyId,
+          emailId: res.responseData.surveys.userId,
+          surveyName: res.responseData.surveys.surveyName,
+          questionnaire: res.responseData.surveys.questions
+        };
+        this.survey = survey;
+      });
     });
   }
 

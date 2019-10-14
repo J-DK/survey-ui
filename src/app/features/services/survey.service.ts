@@ -18,15 +18,15 @@ export class SurveyService {
     return this.http.get(`https://survey-shrike.herokuapp.com/survey-service/api/v1/responses?author=${email}`);
   }
 
-  getSurvey(id: number): Observable<any> {
-    return this.http.get(`http://localhost:3000/surveys/${id}`);
+  getSurvey(id: string): Observable<any> {
+    return this.http.get(`https://survey-shrike.herokuapp.com/survey-service/api/v1/survey?surveyId=${id}`);
   }
 
   createSurvey(survey: Survey): Observable<any> {
     return this.http.post('https://survey-shrike.herokuapp.com/survey-service/api/v1/surveys', survey);
   }
 
-  getMySurveys(): Observable<any> {
-    return this.http.get<any>('http://localhost:3000/surveys');
+  getSurveys(): Observable<any> {
+    return this.http.get<any>(`https://survey-shrike.herokuapp.com/survey-service/api/v1/surveys`);
   }
 }

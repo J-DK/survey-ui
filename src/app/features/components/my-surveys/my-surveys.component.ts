@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Survey } from '../../models/model';
+import { AuthService } from '../../services/auth.service';
 import { SurveyService } from '../../services/survey.service';
 
 @Component({
@@ -9,14 +10,25 @@ import { SurveyService } from '../../services/survey.service';
 })
 export class MySurveysComponent implements OnInit {
   @Input()
-  surveys: Survey[];
+  surveys: Survey[] = [];
 
   viewSurvey;
-  constructor(private mySurveysService: SurveyService) { }
+
+  constructor(private mySurveysService: SurveyService, private authService: AuthService) {
+  }
 
   ngOnInit() {
-    this.mySurveysService.getMySurveys().subscribe(res => {
-      this.surveys = res;
+    this.mySurveysService.getSurveys().subscribe(res => {
+      res.responseData.surveys.forEach((survey) => {
+        if (this.authService.userName === survey.userId) {
+          this.surveys.push({
+            surveyName: survey.surveyName,
+            id: survey.surveyId,
+            emailId: survey.userId,
+            questionnaire: survey.questions
+          });
+        }
+      });
     });
   }
 
