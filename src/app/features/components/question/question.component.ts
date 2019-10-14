@@ -10,7 +10,7 @@ export class QuestionComponent implements OnInit {
 
   selectedValue = "SingleLine";
   @ViewChild('tagInput',  {static: false}) tagInputRef: ElementRef;
-  tags: string[] = ['html', 'Angular'];
+  tags: string[] = [];
   form: FormGroup;
   constructor(private fb: FormBuilder) { }
 
@@ -38,7 +38,7 @@ export class QuestionComponent implements OnInit {
   }
 
   addTag(tag: string): void {
-    if (tag[tag.length - 1] === ',' || tag[tag.length - 1] === ' ') {
+    if (tag[tag.length - 1] === ' ') {
       tag = tag.slice(0, -1);
     }
     if (tag.length > 0) {

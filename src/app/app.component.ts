@@ -9,7 +9,7 @@ import { AuthService } from './features/services/auth.service';
 export class AppComponent {
   title = 'survey-ui';
 
-  constructor(private authService: AuthService) {
+  constructor(public authService: AuthService) {
   }
 
   get show() {
