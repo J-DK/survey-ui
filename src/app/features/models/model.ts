@@ -7,7 +7,7 @@ export interface Question {
 
 
 export interface Survey {
-  id?: number
+  id?: string
   emailId: string;
   surveyName: string;
   questionnaire: Question[];
@@ -16,7 +16,7 @@ export interface Survey {
 export type QuestionType = "singleLine" | "multiLine" | "dropdown" | "select" | "radio";
 
 export interface FeedBack {
-  surveyId: number;
+  surveyId: string;
   surveyedBy: string;
   author: string;
   surveyName: string;

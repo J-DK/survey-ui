@@ -11,11 +11,11 @@ export class SurveyService {
   constructor(private http: HttpClient) { }
 
   saveResponse(response: FeedBack) {
-    return this.http.post('http://localhost:3000/responses', response);
+    return this.http.post(`https://survey-shrike.herokuapp.com/survey-service/api/v1/responses`, response);
   }
 
-  getResponses(): Observable<any> {
-    return this.http.get('http://localhost:3000/responses');
+  getResponses(email: string): Observable<any> {
+    return this.http.get(`https://survey-shrike.herokuapp.com/survey-service/api/v1/responses?author=${email}`);
   }
 
   getSurvey(id: number): Observable<any> {

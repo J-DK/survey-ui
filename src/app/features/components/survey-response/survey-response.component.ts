@@ -11,13 +11,22 @@ import { SurveyToastService } from '../toast/toast.service';
 })
 export class SurveyResponseComponent implements OnInit {
 
+  signedUser: string = "dileepkumarjami@gmail.com";
   responses: FeedBack[] = [];
   constructor(private responseService: SurveyService,
               private toastService: SurveyToastService) { }
 
   ngOnInit() {
-    this.responseService.getResponses().subscribe((res) => {
-      this.responses = res;
+    this.responseService.getResponses(this.signedUser).subscribe((res) => {
+      res.responseData.feedbacks.forEach((feedback) => {
+        this.responses.push({
+          surveyName: feedback.surveyName,
+          surveyId: feedback.surveyId,
+          surveyedBy: feedback.surveyedBy,
+          author: feedback.author,
+          answers: JSON.parse(feedback.answer)
+        });
+      });
       this.toastService.activate(ToastState.SUCCESS, `Fetched your survey responses successfully!!`);
     }, () => {
       this.toastService.activate(ToastState.ERROR, `It seems there is an issue while fetching your survey responses. Please try again later`);
