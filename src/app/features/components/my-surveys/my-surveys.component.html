@@ -1,41 +1,43 @@
-<h2>Your surveys</h2>
+<div style="padding: 10px">
 
-<div class="main">
-  <div class="left">
-    <div class="clr-row">
-      <div class="clr-col-sm-4 clr-col-12" *ngFor="let survey of surveys">
-        <div class="card">
-          <div class="card-header">
-            {{survey.surveyName}}
-          </div>
-          <div class="card-block">
-            <div class="card-media-block">
-              <div class="card-media-description">
+  <h2>Your surveys</h2>
+
+  <div class="main">
+    <div class="left">
+      <div class="clr-row">
+        <div class="clr-col-sm-4 clr-col-12" *ngFor="let survey of surveys">
+          <div class="card">
+            <div class="card-header">
+              {{survey.surveyName}}
+            </div>
+            <div class="card-block">
+              <div class="card-media-block">
+                <div class="card-media-description">
             <span class="card-media-title">
               No. of Questions:
               <span class="badge badge-success" style="font-weight: bold;font-size: 13px;">
                 {{survey.questionnaire.length}}
               </span>
             </span>
-                <span class="card-media-text ">
+                  <span class="card-media-text ">
               Creator:
               <span class="label label-info" style="padding-top: 4px">
                 {{survey.email}}
                 </span>
               </span>
+                </div>
+              </div>
+              <div class="card-text">
               </div>
             </div>
-            <div class="card-text">
+            <div class="card-footer">
+              <button class="btn btn-sm btn-link" (click)="showSurvey(survey)">View</button>
             </div>
-          </div>
-          <div class="card-footer">
-            <button class="btn btn-sm btn-link" (click)="showSurvey(survey)">View</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="right">
+    <div class="right">
       <div class="card" *ngIf="viewSurvey">
         <div class="card-block">
           <survey-form [survey]="viewSurvey"></survey-form>
@@ -44,5 +46,6 @@
           <button class="btn btn-sm btn-link" (click)="viewSurvey=null">Close</button>
         </div>
       </div>
+    </div>
   </div>
 </div>
