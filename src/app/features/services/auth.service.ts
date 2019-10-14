@@ -20,7 +20,7 @@ export class AuthService {
 
   get userName() {
     if(this.currentUserValue) {
-      return window.atob(this.currentUserValue);
+      return this.currentUserValue;
     }
     return '';
   }
@@ -47,7 +47,7 @@ export class AuthService {
 
   setLocalStorage(email: string) {
     // store user details in local storage to keep user logged in between page refreshes
-    localStorage.setItem('currentUser', window.btoa(email));
+    localStorage.setItem('currentUser', email);
     this.currentUserSubject.next(email);
   }
 
