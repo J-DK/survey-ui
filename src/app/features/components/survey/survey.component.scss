@@ -1,5 +1,14 @@
-:host {
+:host ::ng-deep {
   .submit-survey {
     padding-top: 15px;
+  }
+
+  .clr-form-control {
+    flex-direction: column !important;
+  }
+
+  .multi-line {
+    flex-direction: column !important;
+
   }
 }
