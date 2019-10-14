@@ -1,0 +1,10 @@
+:host {
+  .toast-container {
+    position: fixed;
+    width: 50%;
+    z-index: 999999;
+    visibility: hidden;
+    border: 0;
+    color: gray;
+  }
+}
