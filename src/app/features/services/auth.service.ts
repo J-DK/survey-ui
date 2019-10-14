@@ -18,6 +18,13 @@ export class AuthService {
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
+  get userName() {
+    if(this.currentUserValue) {
+      return window.atob(this.currentUserValue);
+    }
+    return '';
+  }
+
   get currentUserValue(): string {
     return this.currentUserSubject.value;
   }

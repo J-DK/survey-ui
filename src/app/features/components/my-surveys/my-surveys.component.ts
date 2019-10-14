@@ -16,14 +16,12 @@ export class MySurveysComponent implements OnInit {
 
   ngOnInit() {
     this.mySurveysService.getMySurveys().subscribe(res => {
-      console.log("res", res);
       this.surveys = res;
     });
   }
 
   showSurvey(survey: Survey) {
     this.viewSurvey = survey;
-    console.log("survey", survey);
   }
 
 }

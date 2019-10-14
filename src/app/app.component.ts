@@ -1,24 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from './features/services/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'survey-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'survey-ui';
 
-  constructor(private authService: AuthService,
-              private router: Router) {
+  constructor(private authService: AuthService) {
   }
 
   get show() {
     return this.authService.currentUserValue ? true : false;
-  }
-
-  ngOnInit(): void {
   }
 
   logOut() {

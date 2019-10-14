@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedBack } from '../../models/model';
+import { AuthService } from '../../services/auth.service';
 import { SurveyService } from '../../services/survey.service';
 import { ToastState } from '../toast/toast-state.enum';
 import { SurveyToastService } from '../toast/toast.service';
@@ -11,13 +12,14 @@ import { SurveyToastService } from '../toast/toast.service';
 })
 export class SurveyResponseComponent implements OnInit {
 
-  signedUser: string = "dileepkumarjami@gmail.com";
   responses: FeedBack[] = [];
   constructor(private responseService: SurveyService,
-              private toastService: SurveyToastService) { }
+              private toastService: SurveyToastService,
+              private authService: AuthService) { }
+
 
   ngOnInit() {
-    this.responseService.getResponses(this.signedUser).subscribe((res) => {
+    this.responseService.getResponses(this.authService.userName).subscribe((res) => {
       res.responseData.feedbacks.forEach((feedback) => {
         this.responses.push({
           surveyName: feedback.surveyName,

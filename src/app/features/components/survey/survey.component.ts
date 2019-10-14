@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Answer, FeedBack, Survey } from '../../models/model';
+import { AuthService } from '../../services/auth.service';
 import { SurveyService } from '../../services/survey.service';
 
 @Component({
@@ -32,7 +33,8 @@ export class SurveyComponent implements OnInit {
   }
 
 
-  constructor(private fb: FormBuilder, private responseService: SurveyService) {
+  constructor(private fb: FormBuilder, private responseService: SurveyService,
+              private authService: AuthService) {
   }
 
   toggle(controlName, option: string) {
@@ -94,7 +96,7 @@ export class SurveyComponent implements OnInit {
 
     let feedBack: FeedBack = {
       surveyId: this._survey.id,
-      surveyedBy: 'JDK',
+      surveyedBy: this.authService.userName,
       author: this._survey.emailId,
       surveyName: this._survey.surveyName,
       answers: answers
