@@ -23,24 +23,24 @@ export class AuthService {
   }
 
   login(loginUser: LoginUser): Observable<any> {
-    return this.http.get( `http://localhost:3000/users?email=${loginUser.email}&password=${loginUser.password}`)
+    return this.http.post( `https://survey-shrike.herokuapp.com/survey-service/api/v1/login`, loginUser)
       .pipe(map((response: any) => {
-          this.setLocalStorage(response[0].firstName);
+          this.setLocalStorage(response.email);
         return response;
       }));
   }
 
   register(user: SignupUser): Observable<any> {
-    return this.http.post("http://localhost:3000/users", user)
+    return this.http.post("https://survey-shrike.herokuapp.com/survey-service/api/v1/register", user)
       .pipe(tap((response: any) => {
-          this.setLocalStorage(response.firstName);
+        console.log("response", response);
+          this.setLocalStorage(response.email);
       }));
   }
 
   setLocalStorage(email: string) {
     // store user details in local storage to keep user logged in between page refreshes
-    // let user = window.btoa(email + ':' + userName);
-    localStorage.setItem('currentUser', email);
+    localStorage.setItem('currentUser', window.btoa(email));
     this.currentUserSubject.next(email);
   }
 

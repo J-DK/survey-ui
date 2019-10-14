@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
+import { ToastModule } from '../toast/toast.module';
 import { QuestionComponent } from './question.component';
 
 @NgModule({
@@ -10,7 +11,8 @@ import { QuestionComponent } from './question.component';
     CommonModule,
     ClarityModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
   ],
   exports: [QuestionComponent]
 })

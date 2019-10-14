@@ -1,14 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClarityModule } from '@clr/angular';
+import { ToastModule } from '../toast/toast.module';
 import { SurveyResponseComponent } from './survey-response.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [SurveyResponseComponent],
   imports: [
     CommonModule,
-    ClarityModule
+    ClarityModule,
+    ToastModule
   ],
-  exports: []
+  exports: [SurveyResponseComponent]
 })
 export class SurveyResponseModule { }

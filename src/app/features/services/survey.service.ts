@@ -23,7 +23,7 @@ export class SurveyService {
   }
 
   createSurvey(survey: Survey): Observable<any> {
-    return this.http.post('http://localhost:3000/surveys', survey);
+    return this.http.post('https://survey-shrike.herokuapp.com/survey-service/api/v1/surveys', survey);
   }
 
   getMySurveys(): Observable<any> {

@@ -11,13 +11,12 @@ import { CreateSurveyModule } from './features/components/create-survey/create-s
 import { HomeModule } from './features/components/home/home.module';
 import { LoginModule } from './features/components/login/login.module';
 import { MySurveysModule } from './features/components/my-surveys/my-surveys.module';
-import { SurveyResponseComponent } from './features/components/survey-response/survey-response.component';
 import { SurveyResponseModule } from './features/components/survey-response/survey-response.module';
+import { ToastModule } from './features/components/toast/toast.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SurveyResponseComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +29,8 @@ import { SurveyResponseModule } from './features/components/survey-response/surv
     SurveyResponseModule,
     CreateSurveyModule,
     LoginModule,
-    AttendSurveyModule
+    AttendSurveyModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

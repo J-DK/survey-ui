@@ -95,7 +95,7 @@ export class SurveyComponent implements OnInit {
     let feedBack: FeedBack = {
       surveyId: this._survey.id,
       surveyedBy: 'JDK',
-      author: this._survey.email,
+      author: this._survey.emailId,
       surveyName: this._survey.surveyName,
       answers: answers
     };

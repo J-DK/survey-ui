@@ -93,7 +93,7 @@ export class CreateSurveyComponent implements OnInit {
     this.opened = !this.opened;
     this.createSurveyForm.reset();
     this.survey = {
-      email: "JDK",
+      emailId: "dileepkumarjami@gmail.com",
       surveyName: this.surveyName,
       questionnaire: this.questions
     }

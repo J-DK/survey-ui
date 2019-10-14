@@ -8,7 +8,7 @@ export interface Question {
 
 export interface Survey {
   id?: number
-  email: string;
+  emailId: string;
   surveyName: string;
   questionnaire: Question[];
 }

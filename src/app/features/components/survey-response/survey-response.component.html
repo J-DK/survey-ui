@@ -1,12 +1,12 @@
 <div style="padding: 10px">
-
+  <survey-toast></survey-toast>
 <clr-stack-view>
     <clr-stack-header>
       <h2>Your responses</h2>
     </clr-stack-header>
 
 
-    <clr-stack-block [clrSbExpanded]="true" *ngFor="let res of responses">
+    <clr-stack-block [clrSbExpanded]="false" *ngFor="let res of responses">
       <clr-stack-label>{{res.surveyName}}</clr-stack-label>
       <clr-stack-content>By:
         <span class="badge badge-warning">{{res.surveyedBy}}</span></clr-stack-content>

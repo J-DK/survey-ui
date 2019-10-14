@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClarityModule } from '@clr/angular';
+import { ToastModule } from '../toast/toast.module';
 import { LoginComponent } from './login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -10,7 +11,8 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     CommonModule,
     ClarityModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastModule
   ],
   exports: [
     LoginComponent

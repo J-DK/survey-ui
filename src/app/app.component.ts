@@ -23,7 +23,6 @@ export class AppComponent implements OnInit {
 
   logOut() {
     this.authService.logout();
-    this.router.navigate(['/home']);
     window.location.reload();
   }
 

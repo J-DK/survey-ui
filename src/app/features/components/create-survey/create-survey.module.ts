@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ClarityModule } from '@clr/angular';
 import { SurveyModule } from '../survey/survey.module';
+import { ToastModule } from '../toast/toast.module';
 import { CreateSurveyComponent } from './create-survey.component';
 
 @NgModule({
@@ -14,7 +15,8 @@ import { CreateSurveyComponent } from './create-survey.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SurveyModule
+    SurveyModule,
+    ToastModule
   ],
   exports: [CreateSurveyComponent]
 })
