@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Question, QuestionType, Survey } from '../../models/model';
+import { AuthService } from '../../services/auth.service';
 import { SurveyService } from '../../services/survey.service';
 
 @Component({
@@ -20,7 +21,8 @@ export class CreateSurveyComponent implements OnInit {
   optionalValues: string[] = [];
 
   constructor(private fb: FormBuilder,
-              private createSurveyService: SurveyService) { }
+              private createSurveyService: SurveyService,
+              private authService: AuthService) { }
 
 
   ngOnInit() {
@@ -93,7 +95,7 @@ export class CreateSurveyComponent implements OnInit {
     this.opened = !this.opened;
     this.createSurveyForm.reset();
     this.survey = {
-      emailId: "dileepkumarjami@gmail.com",
+      emailId: this.authService.currentUserValue,
       surveyName: this.surveyName,
       questionnaire: this.questions
     }

@@ -37,7 +37,7 @@
       </div>
     </div>
   </div>
-  <div class="submit-survey" *ngIf="!isCreateSurvey">
+  <div class="submit-survey" *ngIf="!isCreateSurvey && _survey">
     <button type="reset" class="btn btn-inverse" (click)="resetForm()">Clear</button>
     <button type="submit" class="btn btn-success">Submit</button>
   </div>
